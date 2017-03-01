@@ -1,6 +1,8 @@
 # Alpine2docker Vagrant Box
 
-<img src="https://alpinelinux.org/alpinelinux-logo.svg" alt="Logo" width="200px;"/>
+
+<img src="https://www.vagrantup.com/assets/images/logo-header-d8ec810b.svg" alt="Logo" width="150px;"/>
++<img src="https://alpinelinux.org/alpinelinux-logo.svg" alt="Logo" width="200px;"/>
 +<img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png" alt="Logo" width="200px;"/>
 
 This repository contains the scripts necessary to create a Vagrant box for Docker development on [Alpine Linux OS](https://alpinelinux.org/).
@@ -43,11 +45,11 @@ $ vagrant up
 * VirtualBox additions
 
 ### Docker Tools
-* Docker Engine 1.13.1
-* Docker Compose 1.10.0 to define and run multi-container Docker applications
-* Docker Machine 0.9.0 to provision hosts on cloud providers
-* Docker Bash Completion to quickly type docker commands
-* Vim with Docker syntax to edit Dockerfile with style
+* **Docker Engine 1.13.1**
+* **Docker Compose 1.10.0** to define and run multi-container Docker applications
+* **Docker Machine 0.9.0** to provision hosts on cloud providers
+* **Docker Bash Completion** to quickly type docker commands
+* **Vim with Docker syntax** to edit Dockerfile with style
 
 
 ## Synced folder
