@@ -1,0 +1,46 @@
+#!/usr/bin/env bats
+
+load test_helper
+
+@test "Hostname is ${HOST_NAME}" {
+    run vagrant_ssh 'hostname'
+    [ "$status" -eq 0 ]
+    [ "$output" = "${HOST_NAME}" ]
+}
+
+@test "Default user of the VM is ${BASE_USER}" {
+    run vagrant_ssh 'whoami'
+    [ "$status" -eq 0 ]
+    [ "$output" = "${BASE_USER}" ]
+}
+
+@test "Default shell of default user ${BASE_USER} is bash" {
+    run vagrant_ssh 'echo ${SHELL}'
+    [ "$status" -eq 0 ]
+    [ "$output" = "/bin/bash" ]
+}
+
+@test "Effective shell of default user ${BASE_USER} is bash" {
+    run vagrant_ssh 'echo ${0}'
+    [ "$status" -eq 0 ]
+    [ "$output" = "bash" ]
+}
+
+@test "Swap is enabled" {
+    run vagrant_ssh 'free -m | grep Swap | awk "{print \$2}"'
+    [ "$status" -eq 0 ]
+    [ "$output" -ge 0 ]
+}
+
+@test "Shutdown command exist" {
+    run vagrant_ssh 'which shutdown'
+    [ "$status" -eq 0 ]
+    [ "$output" = "/sbin/shutdown" ]
+}
+
+@test "Root filesystem located on a LVM volume" {
+    run vagrant_ssh 'sudo df -h | grep "/dev/vg0/lv_root" \
+      | grep "/$" | wc -l'
+    [ "$status" -eq 0 ]
+    [ "$output" -eq 1 ]
+}

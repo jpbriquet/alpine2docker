@@ -13,10 +13,6 @@ sed -i 's/quiet/quiet cgroup_enable=memory swapaccount=1/' /boot/extlinux.conf
 
 
 ### Install Docker
-echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' \
-    | tee -a /etc/apk/repositories
-apk update
-
 apk add docker="${DOCKER_VERSION}-r0"
 
 service docker stop
@@ -28,7 +24,16 @@ rc-update add docker boot
 ### Install Docker-compose
 apk add py-pip
 pip install --no-cache-dir --upgrade pip
-pip install --no-cache-dir "docker-compose==${COMPOSE_VERSION}"
+pip install --no-cache-dir "docker-compose==${DOCKER_COMPOSE_VERSION}"
 
-### Docker bash completions
+### Install docker bash completions
 apk add docker-bash-completion
+
+### Install docker vim
+apk add vim
+apk add docker-vim
+
+### Install Docker-machine
+curl -L https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+  chmod +x /tmp/docker-machine &&
+  sudo cp /tmp/docker-machine /usr/local/bin/docker-machine

@@ -14,8 +14,8 @@ Vagrant.configure("2") do |config|
     # For secured workstations
     vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
 
-    # No FS share to allow any depds to the host
-    config.vm.synced_folder ".", "/vagrant", disabled: true
+    # FS share
+    config.vm.synced_folder ".", "/vagrant"
   end
 
 end
