@@ -1,65 +1,88 @@
-# alpine2docker Vagrant Box
+# Alpine2docker Vagrant Box
 
-This repository contains the scripts necessary to create a lightweight Vagrant box for running docker, based on [Alpine Linux OS](https://alpinelinux.org/).
 
-If you work solely with Docker, this box lets you keep your Vagrant workflow and work in the most minimal Docker environment possible.
+<img src="https://www.vagrantup.com/assets/images/logo-header-d8ec810b.svg" alt="Logo" width="150px;"/>
++<img src="https://alpinelinux.org/alpinelinux-logo.svg" alt="Logo" width="200px;"/>
++<img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png" alt="Logo" width="200px;"/>
+
+This repository contains the scripts necessary to create a Vagrant box for Docker development on [Alpine Linux OS](https://alpinelinux.org/).
+
+This box is a good choice, if you work solely with Docker tools and if you would like to use a Vagrant workflow.
+
+Please note that Alpine2Docker is currently designed for development only.
+Using it for any kind of production workloads is highly discouraged.
+
+This box will be updated as soon as possible when a new Docker engine is released.
+
 
 ## Usage
 
-The box is available on [Hashicorp's Atlas](https://atlas.hashicorp.com/dduportal/boxes/alpinedocker), making it very easy to use it:
+The box is available on [Hashicorp's Atlas](https://atlas.hashicorp.com/jpbriquet/boxes/alpine2docker)
 
+To use it, just open a console and type :
 ```
-$ vagrant init dduportal/alpine2docker
+$ vagrant init jpbriquet/alpine2docker
 $ vagrant up
 ```
 
-## [What's in the box ?](https://www.youtube.com/watch?v=1giVzxyoclE)
 
-* Guest OS: Alpine Linux 3.5
-* LVM root filesystem for any filesystem growing allocation
-* 1 Gb swap enabled
+## What's in the box ?
+
+### VM
+* 2 vCPUs
+* 4 GB memory
+* 1 GB swap enabled
 * Default to NAT network
-* Default to 2 vCPUs and 4 Gb memory
+* Audio and USB off
+
+### Guest OS
+* Alpine Linux 3.5/Edge (edge repositories enabled)
+* Kernel 4.9.12-0-grsec x86_64 Linux
+* LVM root filesystem for any filesystem growing allocation
+* Administrative user *alpine* (password is the same)
 * OpenSSH server
 * Bash, curl, sudo
-* Administrative user *alpine* (password is the same)
-* Docker Engine 1.13.0
-* Docker Compose 1.10.0
-* Docker Bash Completion
-* *NOT in the box:*
-  - No VirtualBox addition (meaning: no shared filesystem with the host)
-  - No USB
-  - No Audio
+* VirtualBox additions
 
+### Docker Tools
+* **Docker Engine 1.13.1**
+* **Docker Compose 1.10.0** to define and run multi-container Docker applications
+* **Docker Machine 0.9.0** to provision hosts on cloud providers
+* **Docker Bash Completion** to quickly type docker commands
+* **Vim with Docker syntax** to edit Dockerfile with style
+
+
+## Synced folder
+Several options are possible to share files between the host and the vagrant box.
+* Shared Folder (default). The Vagrantfile root directory content is mounted under /vagrant.
+  It relies on native VirtualBox additions (vboxsf) which are cross-platform, convenient and reliable.
+* nfs and smbfs, rsync are other alternative that have not been yet tested with this box. Ask for this feature with a github issue if you need it.
 
 ## Building the Box
 
-If you want to recreate the box, rather than using the binary, then
-you can use the scripts and Packer template within this repository to
-do so in seconds.
+Box has been created with Packer tool and can be builded as follow.
 
 ### Requirements
 
-* [Make as workflow engine](http://www.gnu.org/software/make/)
-* [Packer as vagrant basebox builder](http://www.packer.io) (at least version 0.12.2)
-* [Vagrant](http://vagrantup.com) (at least version 1.8.5)
-* [VirtualBox](http://www.virtualbox.org) (at least version 5.1.12)
+* [Make for build orchestration](http://www.gnu.org/software/make/)
+* [Packer as vagrant base box builder](http://www.packer.io) (at least version 0.12.2)
+* [Vagrant](http://vagrantup.com) (at least version 1.9.1)
+* [VirtualBox](http://www.virtualbox.org) (at least version 5.1.14)
 * [bats for testing](https://github.com/sstephenson/bats)
 
 ### Building the box
 
-Then run this command to build the box and run the test suite:
+The following make command launch the box build process and tests.
 
 ```
 make all
 ```
 
-You can also run the make targets independently
-for a quick feedback loop:
+It is also possible to call make targets independently:
 
 * `make box`: Only run the packer build
 * `make clean-box`: Remove any packer final or intermediate artifacts
-* `make prepare-test`: Copy the latest built box to the test environement
+* `make prepare-test`: Copy the latest built box to the test environment
 * `make test`: Run the test suite using vagrant
 * `make clean-test`: Clean any test artifacts or VM
 * `make clean`: Clean everything
@@ -78,3 +101,21 @@ of your repository
   - The content will be uploaded inside /var/customize
   - If there is a script `run.sh`, it will be run during box build time
 * Build the VM with the previous instructions
+
+
+## User Feedback
+
+### Issues
+
+If you have any problems with or questions about this box, please contact us through a [GitHub issue](https://github.com/jpbriquet/alpine2docker/issues).
+
+### Contributing
+
+You are invited to contribute new features, fixes, or updates, large or small; we are always thrilled to receive pull requests, and do our best to process them as fast as we can.
+
+Before you start to code, we recommend discussing your plans through a [GitHub issue](https://github.com/jpbriquet/alpine2docker/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
+
+
+## Thanks
+
+Many thanks to [DDuportal](https://github.com/dduportal) for its work on boot2docker and alpine2docker Vagrant Boxes.

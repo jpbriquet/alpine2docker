@@ -2,6 +2,7 @@
 set -exu
 
 adduser -s /bin/bash -D "${BASE_USER}"
+addgroup ${BASE_USER} ${BASE_USER}
 echo "${BASE_USER}:${BASE_USER}" | chpasswd
 
 SSH_USER_DIR="/home/${BASE_USER}/.ssh"

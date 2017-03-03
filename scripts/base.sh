@@ -1,7 +1,13 @@
 #!/bin/sh
 set -uxe
 
+# Setup apk repositories
+echo -e 'http://dl-cdn.alpinelinux.org/alpine/edge/community\n'\
+'http://dl-cdn.alpinelinux.org/alpine/edge/testing'\
+    | tee -a /etc/apk/repositories
+
 # Update system
+apk update
 apk upgrade -U --available
 
 # Install base packages
