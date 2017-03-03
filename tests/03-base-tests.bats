@@ -26,6 +26,12 @@ load test_helper
     [ "$output" = "bash" ]
 }
 
+@test "Registered nameservers are Google's DNS servers" {
+    run vagrant_ssh 'fgrep "nameserver 8.8." /etc/resolv.conf | wc -l'
+    [ "$status" -eq 0 ]
+    [ "$output" -eq 2 ]
+}
+
 @test "Swap is enabled" {
     run vagrant_ssh 'free -m | grep Swap | awk "{print \$2}"'
     [ "$status" -eq 0 ]
