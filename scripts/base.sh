@@ -16,6 +16,11 @@ echo -e 'http://dl-cdn.alpinelinux.org/alpine/edge/community\n'\
 'http://dl-cdn.alpinelinux.org/alpine/edge/testing'\
     | tee -a /etc/apk/repositories
 
+# Refresh time with NTPD at startup
+cat <<EOF > /etc/conf.d/ntpd
+NTPD_OPTS="-s"
+EOF
+
 # Update system
 apk update
 apk upgrade -U --available
