@@ -13,3 +13,15 @@ load test_helper
     [ "$status" -eq 0 ]
     [ "$output" = "vagrant on /vagrant type vboxsf (rw,nodev,relatime)" ]
 }
+
+@test "VirtualBox guest-additions service should be started" {
+    run vagrant_ssh 'rc-service virtualbox-guest-additions status -C'
+    [ "$status" -eq 0 ]
+    [ "$output" = " * status: started" ]
+}
+
+@test "Openntpd service should be stopped" {
+    run vagrant_ssh 'rc-service openntpd status -C'
+    [ "$status" -eq 3 ]
+    [ "$output" = " * status: stopped" ]
+}

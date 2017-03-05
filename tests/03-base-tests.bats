@@ -32,12 +32,6 @@ load test_helper
     [ "$output" -eq 2 ]
 }
 
-@test "NTPD sync at start" {
-    run vagrant_ssh 'cat /etc/conf.d/ntpd'
-    [ "$status" -eq 0 ]
-    [ "$output" -eq 'NTPD_OPTS="-s"' ]
-}
-
 @test "Swap is enabled" {
     run vagrant_ssh 'free -m | grep Swap | awk "{print \$2}"'
     [ "$status" -eq 0 ]

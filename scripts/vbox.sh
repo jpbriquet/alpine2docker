@@ -10,3 +10,9 @@ echo -e 'vboxpci\n'\
 'vboxnetflt\n'\
 'vboxsf'\
 | tee -a /etc/modules
+
+### Add virtualbox-guest-additions service
+rc-update add virtualbox-guest-additions
+
+### Remove openntpd service (time sync is handled by virtualbox-guest-additions)
+rc-update del openntpd
