@@ -46,7 +46,7 @@ $ vagrant up
 
 ### Docker Tools
 * **Docker Engine 1.13.1**
-* **Docker Compose 1.10.0** to define and run multi-container Docker applications
+* **Docker Compose 1.11.2** to define and run multi-container Docker applications
 * **Docker Machine 0.9.0** to provision hosts on cloud providers
 * **Docker Bash Completion** to quickly type docker commands
 * **Vim with Docker syntax** to edit Dockerfile with style
