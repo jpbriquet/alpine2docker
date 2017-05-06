@@ -1,7 +1,7 @@
 # Alpine2docker Vagrant Box
 
 
-<img src="https://www.vagrantup.com/assets/images/logo-header-d8ec810b.svg" alt="Logo" width="150px;"/>
+<img src="https://hyzxph.media.zestyio.com/blog-vagrant-list.svg" alt="Logo" width="70px;"/>
 +<img src="https://alpinelinux.org/alpinelinux-logo.svg" alt="Logo" width="200px;"/>
 +<img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png" alt="Logo" width="200px;"/>
 
