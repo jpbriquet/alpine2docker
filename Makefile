@@ -1,11 +1,11 @@
 
-BOX_VERSION := 1.2.0
+BOX_VERSION := 1.3.0
 BOX_NAME := alpine2docker
 BOX_FILE := $(BOX_NAME)-$(BOX_VERSION).box
 BOX_TEST := $(BOX_NAME)-test
 TEST_DIR := ./tests
 
-all: clean box prepare-test test
+all: clean box prepare-test test hashes
 
 clean: clean-test clean-box
 
@@ -30,5 +30,9 @@ clean-test:
 clean-box:
 	rm -rf output* $(BOX_FILE)
 	rm -rf "$(HOME)/VirtualBox VMs/$(BOX_NAME)"
+
+hashes:
+	shasum -a 256 $(BOX_NAME)-$(BOX_VERSION).box
+	shasum $(BOX_NAME)-$(BOX_VERSION).box
 
 .PHONY: box prepare-test test all clean clean-test clean-box

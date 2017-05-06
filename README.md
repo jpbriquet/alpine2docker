@@ -37,7 +37,7 @@ $ vagrant up
 
 ### Guest OS
 * Alpine Linux 3.5/Edge (edge repositories enabled)
-* Kernel 4.9.17-0-grsec x86_64 Linux
+* Kernel 4.9.26-0-hardened x86_64 Linux
 * LVM root filesystem for any filesystem growing allocation
 * Administrative user *alpine* (password is the same)
 * OpenSSH server
@@ -45,9 +45,9 @@ $ vagrant up
 * VirtualBox additions
 
 ### Docker Tools
-* **Docker Engine 17.03.0**
-* **Docker Compose 1.11.2** to define and run multi-container Docker applications
-* **Docker Machine 0.10.0** to provision hosts on cloud providers
+* **Docker Engine 17.04.0**
+* **Docker Compose 1.13.0** to define and run multi-container Docker applications
+* **Docker Machine 0.11.0** to provision hosts on cloud providers
 * **Docker Bash Completion** to quickly type docker commands
 * **Vim with Docker syntax** to edit Dockerfile with style
 
