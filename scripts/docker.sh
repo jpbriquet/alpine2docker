@@ -13,7 +13,7 @@ sed -i 's/quiet/quiet cgroup_enable=memory swapaccount=1/' /boot/extlinux.conf
 
 
 ### Install Docker
-apk add docker="${DOCKER_VERSION}-r1"
+apk add docker="${DOCKER_VERSION}-r0"
 
 service docker stop
 addgroup root docker

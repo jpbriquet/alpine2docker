@@ -2,9 +2,9 @@
     "description": "Build a minimalistic VM for Docker with Linux Alpine",
     "variables": {
         "BASE_USER": "alpine",
-        "DOCKER_VERSION": "17.04.0",
-        "DOCKER_COMPOSE_VERSION": "1.13.0",
-        "DOCKER_MACHINE_VERSION": "0.11.0",
+        "DOCKER_VERSION": "17.05.0",
+        "DOCKER_COMPOSE_VERSION": "1.14.0",
+        "DOCKER_MACHINE_VERSION": "0.12.2",
         "BOX_VERSION": "latest"
     },
     "builders": [
@@ -21,8 +21,8 @@
             ],
             "disk_size": 40960,
             "guest_os_type": "Linux26_64",
-            "iso_urls": ["https://nl.alpinelinux.org/alpine/v3.5/releases/x86_64/alpine-standard-3.5.2-x86_64.iso"],
-            "iso_checksum": "c955c26431c877527024d94d1ba6495b87fddac186df16c404f7b15ea61f443b",
+            "iso_urls": ["https://nl.alpinelinux.org/alpine/v3.6/releases/x86_64/alpine-standard-3.6.2-x86_64.iso"],
+            "iso_checksum": "ddf8b91cc0d2b1c110f26607d410e5c951eedff9c60d6eb05d220b87c1970840",
             "iso_checksum_type": "sha256",
             "communicator": "ssh",
             "http_directory": "./http",

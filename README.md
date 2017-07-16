@@ -1,9 +1,7 @@
-# Alpine2docker Vagrant Box
+# Alpine2docker4dev Vagrant Box
 
 
-<img src="https://hyzxph.media.zestyio.com/blog-vagrant-list.svg" alt="Logo" width="70px;"/>
-+<img src="https://alpinelinux.org/alpinelinux-logo.svg" alt="Logo" width="200px;"/>
-+<img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png" alt="Logo" width="200px;"/>
+<img src="https://hyzxph.media.zestyio.com/blog-vagrant-list.svg" alt="Logo" width="70px;"/> + <img src="https://alpinelinux.org/alpinelinux-logo.svg" alt="Logo" width="200px;"/> + <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png" alt="Logo" width="200px;"/>
 
 This repository contains the scripts necessary to create a Vagrant box for Docker development on [Alpine Linux OS](https://alpinelinux.org/).
 
@@ -17,7 +15,7 @@ This box will be updated as soon as possible when a new Docker engine is release
 
 ## Usage
 
-The box is available on [Hashicorp's Atlas](https://atlas.hashicorp.com/jpbriquet/boxes/alpine2docker)
+The box is available on [HashiCorp's Vagrant Cloud](https://app.vagrantup.com/jpbriquet/boxes/alpine2docker)
 
 To use it, just open a console and type :
 ```
@@ -36,8 +34,8 @@ $ vagrant up
 * Audio and USB off
 
 ### Guest OS
-* Alpine Linux 3.5/Edge (edge repositories enabled)
-* Kernel 4.9.26-0-hardened x86_64 Linux
+* Alpine Linux 3.6/Edge (edge repositories enabled)
+* Kernel 4.9.37-0-hardened x86_64 Linux
 * LVM root filesystem for any filesystem growing allocation
 * Administrative user *alpine* (password is the same)
 * OpenSSH server
@@ -45,9 +43,9 @@ $ vagrant up
 * VirtualBox additions
 
 ### Docker Tools
-* **Docker Engine 17.04.0**
-* **Docker Compose 1.13.0** to define and run multi-container Docker applications
-* **Docker Machine 0.11.0** to provision hosts on cloud providers
+* **Docker Engine 17.05.0**
+* **Docker Compose 1.14.0** to define and run multi-container Docker applications
+* **Docker Machine 0.12.2** to provision hosts on cloud providers
 * **Docker Bash Completion** to quickly type docker commands
 * **Vim with Docker syntax** to edit Dockerfile with style
 
@@ -107,13 +105,13 @@ of your repository
 
 ### Issues
 
-If you have any problems with or questions about this box, please contact us through a [GitHub issue](https://github.com/jpbriquet/alpine2docker/issues).
+If you have any problems with or questions about this box, please contact us through a [GitHub issue](https://github.com/jpbriquet/alpine2docker4dev/issues).
 
 ### Contributing
 
 You are invited to contribute new features, fixes, or updates, large or small; we are always thrilled to receive pull requests, and do our best to process them as fast as we can.
 
-Before you start to code, we recommend discussing your plans through a [GitHub issue](https://github.com/jpbriquet/alpine2docker/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
+Before you start to code, we recommend discussing your plans through a [GitHub issue](https://github.com/jpbriquet/alpine2docker4dev/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
 
 
 ## Thanks

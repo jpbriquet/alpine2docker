@@ -56,7 +56,7 @@ load test_helper
 }
 
 @test "Docker can run Redis" {
-    run vagrant_ssh "docker run --name redis -d --rm redis && sleep 5 && docker logs redis | grep 'Running in standalone mode'"
+    run vagrant_ssh "docker run --name redis -d --rm redis && sleep 5 && docker logs redis | grep 'Running mode=standalone'"
     [ "$status" -eq 0 ]
 }
 
@@ -71,12 +71,12 @@ load test_helper
 }
 
 @test "Docker can run JVM apps" {
-    run vagrant_ssh "docker run --name jenkins -d --rm jenkins && sleep 20 && docker logs jenkins 2>&1 | grep 'INFO: Jenkins is fully up and running'"
+    run vagrant_ssh "docker run --name tomcat -d --rm tomcat && sleep 5 && docker logs tomcat 2>&1 | grep 'org.apache.catalina.startup.Catalina.start Server startup in '"
     [ "$status" -eq 0 ]
 }
 
 @test "Docker can stop and remove containers" {
-    run vagrant_ssh 'docker stop redis postgres jenkins'
+    run vagrant_ssh 'docker stop redis postgres tomcat'
     run vagrant_ssh 'docker ps -a | wc -l'
     [ "$status" -eq 0 ]
     [ "$output" -eq 1 ]

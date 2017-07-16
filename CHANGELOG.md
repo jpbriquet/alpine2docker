@@ -1,6 +1,22 @@
 
 # CHANGELOG
 
+## 16/07/2017 (1.4.0)
+
+### Update to new versions
+* Alpine 3.6.2
+* Kernel 4.9.37-0-hardened
+* Docker 17.05.0
+* Docker machine 0.12.2
+* Docker compose 1.14.0
+
+Vagrant image available on https://app.vagrantup.com/jpbriquet/boxes/alpine2docker/versions/1.4.0
+
+Release hashes:
+- SHA256: dcd0ec48e8146668485e97304387f50dc3449b93dfead45bd5929f60a9eaf566
+- SHA1: 7099a7ca985af625c5982619d3b4603105fc9d86
+
+
 ## 06/06/2017 (1.3.0)
 
 ### Update to new versions
@@ -13,7 +29,7 @@ Vagrant image available on https://atlas.hashicorp.com/jpbriquet/boxes/alpine2do
 
 Release hashes:
 - SHA256: 7acb691177463ba94f41c2fb63f83875ae8ce1e0f43679c5ca89d8a99b7cda17
-- SHA1: 7099a7ca985af625c5982619d3b4603105fc9d86
+- SHA1: e3e1ac4245cbadacc4fe12b2547c427e6584035b
 
 ## 25/03/2017 (1.2.0)
 
